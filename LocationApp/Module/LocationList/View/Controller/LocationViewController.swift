@@ -34,25 +34,6 @@ extension LocationViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
-        //20.593684    78.96288    India
-        let appURLScheme = "wikipedia://places?lat=20.593684&long=78.96288&WMFArticleURL=India"
-
-        guard let appURL = URL(string: appURLScheme) else {
-            return
-        }
-
-        if UIApplication.shared.canOpenURL(appURL) {
-
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(appURL)
-            }
-            else {
-                UIApplication.shared.openURL(appURL)
-            }
-        }
-        else {
-            // Here you can handle the case when your other application cannot be opened for any reason.
-        }
+       // To Do:- open url from here
     }
 }
