@@ -17,7 +17,7 @@ class LocationCellViewModel {
     }
     
     var lattitude: String? {
-        guard let lattitude = self.locationObject.lattitude else { return nil }
+        guard let lattitude = self.locationObject.latitude else { return nil }
         return "Name: \(lattitude)"
     }
     

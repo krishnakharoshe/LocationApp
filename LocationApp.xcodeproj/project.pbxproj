@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		514EF1F524FE5304008B76B0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EF1F424FE5304008B76B0 /* Router.swift */; };
+		514EF1F724FE53D8008B76B0 /* LocationListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EF1F624FE53D8008B76B0 /* LocationListRouter.swift */; };
+		514EF1FF24FE5B16008B76B0 /* AddLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EF1FC24FE5571008B76B0 /* AddLocationViewModel.swift */; };
+		514EF20024FE60B7008B76B0 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EF1F824FE5538008B76B0 /* AddLocationViewController.swift */; };
+		514EF20224FED06D008B76B0 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D11824FA747800335917 /* AppData.swift */; };
 		5168D0E524FA6D3B00335917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D0E424FA6D3B00335917 /* AppDelegate.swift */; };
 		5168D0E724FA6D3B00335917 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D0E624FA6D3B00335917 /* SceneDelegate.swift */; };
 		5168D0EC24FA6D3C00335917 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5168D0EA24FA6D3C00335917 /* Main.storyboard */; };
@@ -16,7 +21,6 @@
 		5168D10724FA6D4500335917 /* LocationAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D10624FA6D4500335917 /* LocationAppUITests.swift */; };
 		5168D11524FA6DCE00335917 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D11424FA6DCE00335917 /* Location.swift */; };
 		5168D11724FA710900335917 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D11624FA710900335917 /* LocationViewModel.swift */; };
-		5168D11924FA747800335917 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D11824FA747800335917 /* AppData.swift */; };
 		5168D11B24FA786600335917 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D11A24FA786600335917 /* LocationViewController.swift */; };
 		5168D12324FA7D4B00335917 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D12124FA7D4B00335917 /* LocationTableViewCell.swift */; };
 		5168D12424FA7D4B00335917 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D12224FA7D4B00335917 /* LocationTableViewCell.xib */; };
@@ -41,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		514EF1F424FE5304008B76B0 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		514EF1F624FE53D8008B76B0 /* LocationListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListRouter.swift; sourceTree = "<group>"; };
+		514EF1F824FE5538008B76B0 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		514EF1FC24FE5571008B76B0 /* AddLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewModel.swift; sourceTree = "<group>"; };
 		5168D0E124FA6D3B00335917 /* LocationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5168D0E424FA6D3B00335917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5168D0E624FA6D3B00335917 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +96,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		514EF1FA24FE5541008B76B0 /* AddLocation */ = {
+			isa = PBXGroup;
+			children = (
+				514EF1FB24FE555A008B76B0 /* View */,
+				514EF1FE24FE5576008B76B0 /* ViewModel */,
+			);
+			path = AddLocation;
+			sourceTree = "<group>";
+		};
+		514EF1FB24FE555A008B76B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				514EF1F824FE5538008B76B0 /* AddLocationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		514EF1FE24FE5576008B76B0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				514EF1FC24FE5571008B76B0 /* AddLocationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		514EF20124FECE7D008B76B0 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				5168D11824FA747800335917 /* AppData.swift */,
+				514EF1F424FE5304008B76B0 /* Router.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		5168D0D824FA6D3B00335917 = {
 			isa = PBXGroup;
 			children = (
@@ -118,7 +160,6 @@
 				5168D0ED24FA6D4500335917 /* Assets.xcassets */,
 				5168D0EF24FA6D4500335917 /* LaunchScreen.storyboard */,
 				5168D0F224FA6D4500335917 /* Info.plist */,
-				5168D11824FA747800335917 /* AppData.swift */,
 			);
 			path = LocationApp;
 			sourceTree = "<group>";
@@ -144,7 +185,9 @@
 		5168D11C24FA7C2400335917 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				514EF20124FECE7D008B76B0 /* Helper */,
 				5168D12024FA7C6D00335917 /* LocationList */,
+				514EF1FA24FE5541008B76B0 /* AddLocation */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -181,6 +224,7 @@
 				5168D11F24FA7C6000335917 /* Model */,
 				5168D11E24FA7C5700335917 /* ViewModel */,
 				5168D11D24FA7C5000335917 /* View */,
+				514EF1F624FE53D8008B76B0 /* LocationListRouter.swift */,
 			);
 			path = LocationList;
 			sourceTree = "<group>";
@@ -336,11 +380,15 @@
 				5168D11B24FA786600335917 /* LocationViewController.swift in Sources */,
 				5168D12324FA7D4B00335917 /* LocationTableViewCell.swift in Sources */,
 				5168D0E524FA6D3B00335917 /* AppDelegate.swift in Sources */,
+				514EF1FF24FE5B16008B76B0 /* AddLocationViewModel.swift in Sources */,
 				5168D12824FA87F200335917 /* LocationCellViewModel.swift in Sources */,
+				514EF1F524FE5304008B76B0 /* Router.swift in Sources */,
+				514EF1F724FE53D8008B76B0 /* LocationListRouter.swift in Sources */,
+				514EF20024FE60B7008B76B0 /* AddLocationViewController.swift in Sources */,
 				5168D11524FA6DCE00335917 /* Location.swift in Sources */,
 				5168D11724FA710900335917 /* LocationViewModel.swift in Sources */,
 				5168D0E724FA6D3B00335917 /* SceneDelegate.swift in Sources */,
-				5168D11924FA747800335917 /* AppData.swift in Sources */,
+				514EF20224FED06D008B76B0 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

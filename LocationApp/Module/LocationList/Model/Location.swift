@@ -9,6 +9,6 @@ import Foundation
 
 struct Location {
     var name: String?
-    var lattitude: Double?
+    var latitude: Double?
     var longitude: Double?
 }
