@@ -9,9 +9,7 @@ import UIKit
 
 class AppData {
 
-    private static var sharedData: AppData = {
-        return AppData()
-    }()
+    private static var sharedData = AppData()
     
     private var locationsArray = [Location]()
     
