@@ -27,6 +27,10 @@
 		5168D12324FA7D4B00335917 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D12124FA7D4B00335917 /* LocationTableViewCell.swift */; };
 		5168D12424FA7D4B00335917 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D12224FA7D4B00335917 /* LocationTableViewCell.xib */; };
 		5168D12824FA87F200335917 /* LocationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D12724FA87F200335917 /* LocationCellViewModel.swift */; };
+		51F6AB1F24FF5A34002EC846 /* LocationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6AB1E24FF5A34002EC846 /* LocationViewModelTests.swift */; };
+		51F6AB2124FF958F002EC846 /* AddLocationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6AB2024FF958F002EC846 /* AddLocationViewModelTests.swift */; };
+		51F6AB2324FF9E5B002EC846 /* AddLocationViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6AB2224FF9E5B002EC846 /* AddLocationViewControllerTests.swift */; };
+		51F6AB2524FFA623002EC846 /* LocationCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6AB2424FFA623002EC846 /* LocationCellViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		5168D12124FA7D4B00335917 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		5168D12224FA7D4B00335917 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
 		5168D12724FA87F200335917 /* LocationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellViewModel.swift; sourceTree = "<group>"; };
+		51F6AB1E24FF5A34002EC846 /* LocationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModelTests.swift; sourceTree = "<group>"; };
+		51F6AB2024FF958F002EC846 /* AddLocationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewModelTests.swift; sourceTree = "<group>"; };
+		51F6AB2224FF9E5B002EC846 /* AddLocationViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewControllerTests.swift; sourceTree = "<group>"; };
+		51F6AB2424FFA623002EC846 /* LocationCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +183,10 @@
 				5168D0FD24FA6D4500335917 /* Info.plist */,
 				514EF20324FEDF74008B76B0 /* LocationTests.swift */,
 				514EF20524FEE4C1008B76B0 /* LocationViewControllerTests.swift */,
+				51F6AB1E24FF5A34002EC846 /* LocationViewModelTests.swift */,
+				51F6AB2024FF958F002EC846 /* AddLocationViewModelTests.swift */,
+				51F6AB2224FF9E5B002EC846 /* AddLocationViewControllerTests.swift */,
+				51F6AB2424FFA623002EC846 /* LocationCellViewModelTests.swift */,
 			);
 			path = LocationAppTests;
 			sourceTree = "<group>";
@@ -402,9 +414,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51F6AB2124FF958F002EC846 /* AddLocationViewModelTests.swift in Sources */,
+				51F6AB2324FF9E5B002EC846 /* AddLocationViewControllerTests.swift in Sources */,
 				514EF20424FEDF74008B76B0 /* LocationTests.swift in Sources */,
 				514EF20624FEE4C1008B76B0 /* LocationViewControllerTests.swift in Sources */,
 				5168D0FC24FA6D4500335917 /* LocationAppTests.swift in Sources */,
+				51F6AB1F24FF5A34002EC846 /* LocationViewModelTests.swift in Sources */,
+				51F6AB2524FFA623002EC846 /* LocationCellViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

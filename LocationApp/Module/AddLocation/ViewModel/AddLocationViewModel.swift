@@ -9,7 +9,6 @@ import UIKit
 
 class AddLocationViewModel: NSObject {
 
-    // constants
     //constants
     enum Constants {
         static let namePlaceholder = "Enter location name"

@@ -29,7 +29,6 @@ class AddLocationViewController: UIViewController {
     // private functions
     
     private func initialSetup() {
-        //self.bindViewModel()
         self.setupUI()
     }
     
@@ -65,5 +64,4 @@ class AddLocationViewController: UIViewController {
         
         self.navigationController?.popViewController(animated: true)
     }
-    
 }

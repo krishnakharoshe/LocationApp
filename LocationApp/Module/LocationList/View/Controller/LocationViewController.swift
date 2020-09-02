@@ -32,7 +32,6 @@ class LocationViewController: UIViewController {
 
     private func initialSetup() {
         self.viewModel = LocationViewModel()
-        self.bindViewModel()
         self.setupUI()
     }
     
@@ -42,22 +41,6 @@ class LocationViewController: UIViewController {
         }
         self.title = viewModel.title
         self.tableView.register(UINib(nibName: "LocationTableViewCell", bundle: nil), forCellReuseIdentifier: "reusableIdentifier")
-    }
-    
-    private func bindViewModel() {
-        guard let viewModel = viewModel else {
-            return
-        }
-        
-        viewModel.failure = { [weak self] failure in
-            guard let strongSelf = self else { return }
-            
-            switch failure {
-            case .coordinates, .wrongURL:
-                strongSelf.router.route(to: .alert, from: strongSelf, with: nil)
-                break
-            }
-        }
     }
     
     //IBActions
@@ -84,6 +67,17 @@ extension LocationViewController: UITableViewDataSource, UITableViewDelegate {
         guard let viewModel = viewModel else {
             return
         }
-        viewModel.openUrlFrom(location: viewModel.dataSource[indexPath.row])
+        
+        viewModel.openUrlFrom(location: viewModel.dataSource[indexPath.row], result: { [weak self] success, failure in
+            
+            guard let selfStrong = self  else { return }
+            
+            switch (success, failure) {
+            case (false, .coordinates), (false, .wrongURL):
+                selfStrong.router.route(to: .alert, from: selfStrong, with: nil)
+                break
+            default: break
+            }
+        })
     }
 }

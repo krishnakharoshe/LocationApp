@@ -18,12 +18,12 @@ class LocationCellViewModel {
     
     var lattitude: String? {
         guard let lattitude = self.locationObject.latitude else { return nil }
-        return "Name: \(lattitude)"
+        return "Latitude: \(lattitude)"
     }
     
     var longitude: String? {
         guard let longitude = self.locationObject.longitude else { return nil }
-        return "Name: \(longitude)"
+        return "Longitude: \(longitude)"
     }
     
     init(location: Location) {

@@ -34,7 +34,7 @@ class LocationViewModel {
         return dataSource.count
     }
     
-    var failure: ((Failure) -> Void)?
+    var handler: ((Bool, Failure) -> Void)?
     
     init() {
         title = "List Of Locations"
@@ -46,18 +46,18 @@ class LocationViewModel {
         return LocationCellViewModel(location: dataSource[index])
     }
     
-    func openUrlFrom(location: Location) {
+    func openUrlFrom(location: Location, result: @escaping (Bool, Failure?) -> Void) {
                 
         guard let latitude = location.latitude,
               let longitude = location.longitude else {
-            failure?(.coordinates)
+            result(false, .coordinates)
             return
         }
         
         let urlString = "\(Constants.host)://\(Constants.path)?\(Constants.queryOne)=\(latitude)&\(Constants.queryTwo)=\(longitude)"
 
         guard let appURL = URL(string: urlString) else {
-            failure?(.wrongURL)
+            result(false, .wrongURL)
             return
         }
         
@@ -68,8 +68,9 @@ class LocationViewModel {
             else {
                 UIApplication.shared.openURL(appURL)
             }
+            result(true, nil)
         } else {
-            failure?(.wrongURL)
+            result(false, .wrongURL)
         }
     }
 }

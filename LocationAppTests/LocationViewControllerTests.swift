@@ -19,7 +19,7 @@ class LocationViewControllerTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.controller = nil
     }
 
     func test_TableViewIsNotNilAfterViewDidLoad() {
@@ -51,6 +51,6 @@ class LocationViewControllerTests: XCTestCase {
     func testNumberRowsInFirstSection_IsToDoCount() {
         let tableView = UITableView()
         tableView.dataSource = self.controller
-        XCTAssertEqual(tableView.numberOfRows(inSection: 0), 4)
+        XCTAssertEqual(tableView.numberOfRows(inSection: 0), 5)
     }
 }
