@@ -41,4 +41,11 @@ class AddLocationViewModel: NSObject {
     func addLocation(name: String, latitude: Double, longitude: Double) {
         AppData.shared().addLocation(location: Location(name: name, latitude: latitude, longitude: longitude))
     }
+    
+    func showAlert(controller: UIViewController) {
+        
+        let alert = UIAlertController(title: "Alert", message: "Enter correct details", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        controller.present(alert, animated: true, completion: nil)
+    }
 }

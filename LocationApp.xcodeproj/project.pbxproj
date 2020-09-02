@@ -20,7 +20,6 @@
 		5168D0EE24FA6D4500335917 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5168D0ED24FA6D4500335917 /* Assets.xcassets */; };
 		5168D0F124FA6D4500335917 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5168D0EF24FA6D4500335917 /* LaunchScreen.storyboard */; };
 		5168D0FC24FA6D4500335917 /* LocationAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D0FB24FA6D4500335917 /* LocationAppTests.swift */; };
-		5168D10724FA6D4500335917 /* LocationAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D10624FA6D4500335917 /* LocationAppUITests.swift */; };
 		5168D11524FA6DCE00335917 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D11424FA6DCE00335917 /* Location.swift */; };
 		5168D11724FA710900335917 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D11624FA710900335917 /* LocationViewModel.swift */; };
 		5168D11B24FA786600335917 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D11A24FA786600335917 /* LocationViewController.swift */; };
@@ -30,17 +29,11 @@
 		51F6AB2124FF958F002EC846 /* AddLocationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6AB2024FF958F002EC846 /* AddLocationViewModelTests.swift */; };
 		51F6AB2324FF9E5B002EC846 /* AddLocationViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6AB2224FF9E5B002EC846 /* AddLocationViewControllerTests.swift */; };
 		51F6AB2524FFA623002EC846 /* LocationCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6AB2424FFA623002EC846 /* LocationCellViewModelTests.swift */; };
+		51F6AB29250013A8002EC846 /* AppDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6AB28250013A8002EC846 /* AppDataTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		5168D0F824FA6D4500335917 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5168D0D924FA6D3B00335917 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5168D0E024FA6D3B00335917;
-			remoteInfo = LocationApp;
-		};
-		5168D10324FA6D4500335917 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5168D0D924FA6D3B00335917 /* Project object */;
 			proxyType = 1;
@@ -66,9 +59,6 @@
 		5168D0F724FA6D4500335917 /* LocationAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5168D0FB24FA6D4500335917 /* LocationAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAppTests.swift; sourceTree = "<group>"; };
 		5168D0FD24FA6D4500335917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5168D10224FA6D4500335917 /* LocationAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5168D10624FA6D4500335917 /* LocationAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAppUITests.swift; sourceTree = "<group>"; };
-		5168D10824FA6D4500335917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5168D11424FA6DCE00335917 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5168D11624FA710900335917 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		5168D11824FA747800335917 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
@@ -79,6 +69,7 @@
 		51F6AB2024FF958F002EC846 /* AddLocationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewModelTests.swift; sourceTree = "<group>"; };
 		51F6AB2224FF9E5B002EC846 /* AddLocationViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewControllerTests.swift; sourceTree = "<group>"; };
 		51F6AB2424FFA623002EC846 /* LocationCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellViewModelTests.swift; sourceTree = "<group>"; };
+		51F6AB28250013A8002EC846 /* AppDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,13 +81,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5168D0F424FA6D4500335917 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5168D0FF24FA6D4500335917 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -145,7 +129,6 @@
 			children = (
 				5168D0E324FA6D3B00335917 /* LocationApp */,
 				5168D0FA24FA6D4500335917 /* LocationAppTests */,
-				5168D10524FA6D4500335917 /* LocationAppUITests */,
 				5168D0E224FA6D3B00335917 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -155,7 +138,6 @@
 			children = (
 				5168D0E124FA6D3B00335917 /* LocationApp.app */,
 				5168D0F724FA6D4500335917 /* LocationAppTests.xctest */,
-				5168D10224FA6D4500335917 /* LocationAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,17 +167,9 @@
 				51F6AB2024FF958F002EC846 /* AddLocationViewModelTests.swift */,
 				51F6AB2224FF9E5B002EC846 /* AddLocationViewControllerTests.swift */,
 				51F6AB2424FFA623002EC846 /* LocationCellViewModelTests.swift */,
+				51F6AB28250013A8002EC846 /* AppDataTests.swift */,
 			);
 			path = LocationAppTests;
-			sourceTree = "<group>";
-		};
-		5168D10524FA6D4500335917 /* LocationAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				5168D10624FA6D4500335917 /* LocationAppUITests.swift */,
-				5168D10824FA6D4500335917 /* Info.plist */,
-			);
-			path = LocationAppUITests;
 			sourceTree = "<group>";
 		};
 		5168D11C24FA7C2400335917 /* Module */ = {
@@ -299,24 +273,6 @@
 			productReference = 5168D0F724FA6D4500335917 /* LocationAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5168D10124FA6D4500335917 /* LocationAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5168D11124FA6D4500335917 /* Build configuration list for PBXNativeTarget "LocationAppUITests" */;
-			buildPhases = (
-				5168D0FE24FA6D4500335917 /* Sources */,
-				5168D0FF24FA6D4500335917 /* Frameworks */,
-				5168D10024FA6D4500335917 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5168D10424FA6D4500335917 /* PBXTargetDependency */,
-			);
-			name = LocationAppUITests;
-			productName = LocationAppUITests;
-			productReference = 5168D10224FA6D4500335917 /* LocationAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -330,10 +286,6 @@
 						CreatedOnToolsVersion = 12.0;
 					};
 					5168D0F624FA6D4500335917 = {
-						CreatedOnToolsVersion = 12.0;
-						TestTargetID = 5168D0E024FA6D3B00335917;
-					};
-					5168D10124FA6D4500335917 = {
 						CreatedOnToolsVersion = 12.0;
 						TestTargetID = 5168D0E024FA6D3B00335917;
 					};
@@ -354,7 +306,6 @@
 			targets = (
 				5168D0E024FA6D3B00335917 /* LocationApp */,
 				5168D0F624FA6D4500335917 /* LocationAppTests */,
-				5168D10124FA6D4500335917 /* LocationAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -371,13 +322,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5168D0F524FA6D4500335917 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5168D10024FA6D4500335917 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -413,18 +357,11 @@
 				51F6AB2124FF958F002EC846 /* AddLocationViewModelTests.swift in Sources */,
 				51F6AB2324FF9E5B002EC846 /* AddLocationViewControllerTests.swift in Sources */,
 				514EF20424FEDF74008B76B0 /* LocationTests.swift in Sources */,
+				51F6AB29250013A8002EC846 /* AppDataTests.swift in Sources */,
 				514EF20624FEE4C1008B76B0 /* LocationViewControllerTests.swift in Sources */,
 				5168D0FC24FA6D4500335917 /* LocationAppTests.swift in Sources */,
 				51F6AB1F24FF5A34002EC846 /* LocationViewModelTests.swift in Sources */,
 				51F6AB2524FFA623002EC846 /* LocationCellViewModelTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5168D0FE24FA6D4500335917 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5168D10724FA6D4500335917 /* LocationAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,11 +372,6 @@
 			isa = PBXTargetDependency;
 			target = 5168D0E024FA6D3B00335917 /* LocationApp */;
 			targetProxy = 5168D0F824FA6D4500335917 /* PBXContainerItemProxy */;
-		};
-		5168D10424FA6D4500335917 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5168D0E024FA6D3B00335917 /* LocationApp */;
-			targetProxy = 5168D10324FA6D4500335917 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -661,46 +593,6 @@
 			};
 			name = Release;
 		};
-		5168D11224FA6D4500335917 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8QXCYKR23Q;
-				INFOPLIST_FILE = LocationAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.krishna.LocationAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = LocationApp;
-			};
-			name = Debug;
-		};
-		5168D11324FA6D4500335917 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8QXCYKR23Q;
-				INFOPLIST_FILE = LocationAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.krishna.LocationAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = LocationApp;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -727,15 +619,6 @@
 			buildConfigurations = (
 				5168D10F24FA6D4500335917 /* Debug */,
 				5168D11024FA6D4500335917 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5168D11124FA6D4500335917 /* Build configuration list for PBXNativeTarget "LocationAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5168D11224FA6D4500335917 /* Debug */,
-				5168D11324FA6D4500335917 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

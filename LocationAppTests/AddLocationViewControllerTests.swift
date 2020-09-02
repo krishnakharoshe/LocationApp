@@ -15,11 +15,15 @@ class AddLocationViewControllerTests: XCTestCase {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         self.controller = storyboard.instantiateViewController(identifier: "AddLocationViewController") as AddLocationViewController
         let _ = self.controller?.view
-        
     }
 
     override func tearDownWithError() throws {
         self.controller = nil
+    }
+    
+    func testInit_ShouldReturnNotNilController() {
+        let controller = AddLocationViewController.instantiate()
+        XCTAssertTrue(controller.isKind(of: AddLocationViewController.self))
     }
     
     func test_LocationNameTextFieldNotNilAfterViewDidLoad() {
@@ -37,5 +41,4 @@ class AddLocationViewControllerTests: XCTestCase {
     func test_SaveButtonNotNilAfterViewDidLoad() {
         XCTAssertNotNil(self.controller?.saveButton)
     }
-
 }

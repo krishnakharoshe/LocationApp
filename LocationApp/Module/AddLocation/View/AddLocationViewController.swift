@@ -44,17 +44,27 @@ class AddLocationViewController: UIViewController {
         self.longitudeTextfield.placeholder = viewModel.longitudePlaceholder
         self.longitudeTextfield.keyboardType = .decimalPad
         self.saveButton.setTitle(viewModel.buttonTitle, for: .normal)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    private func clearTextfields() {
+        self.locationNameTextfield.text = ""
+        self.latitudeTextfield.text = ""
+        self.longitudeTextfield.text = ""
+    }
     
     @IBAction private func saveLocation_TouchUpInside() {
         
-        guard let viewModel = self.viewModel,
-              let locationName = self.locationNameTextfield.text,
+        guard let viewModel = self.viewModel else { return }
+        
+        guard let locationName = self.locationNameTextfield.text,
               let latitudeString = self.latitudeTextfield.text,
               let latitude = Double(latitudeString),
               let longitudeString = self.longitudeTextfield.text,
               let longitude = Double(longitudeString) else {
+
+            self.clearTextfields()
+            viewModel.showAlert(controller: self)
             return
         }
         

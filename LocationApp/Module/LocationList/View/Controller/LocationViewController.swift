@@ -37,6 +37,7 @@ class LocationViewController: UIViewController {
             return
         }
         self.title = viewModel.title
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     //IBActions

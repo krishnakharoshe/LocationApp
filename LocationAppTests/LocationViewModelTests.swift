@@ -8,6 +8,8 @@
 import XCTest
 @testable import LocationApp
 
+private class MockAppData: AppData {}
+
 class LocationViewModelTests: XCTestCase {
 
     var viewModel: LocationViewModel?
@@ -27,16 +29,9 @@ class LocationViewModelTests: XCTestCase {
             return
         }
     
-        let expectedDataSource = [
-            Location(name: "India", latitude: 20.593684, longitude: 78.96288),
-            Location(name: "Italy", latitude: 41.87194, longitude: 12.56738),
-            Location(name: "Lithuania", latitude: 55.169438, longitude: 23.881275),
-            Location(name: "Madagascar", latitude: -18.766947, longitude: 46.869107)
-        ]
         let expectedTitle = "List Of Locations"
-        
         XCTAssertEqual(viewModel.title,expectedTitle)
-        XCTAssertEqual(viewModel.dataSource, expectedDataSource)
+        XCTAssertEqual(viewModel.dataSource, MockAppData.shared().getLocationArray())
     }
     
     func testWhenIndexPassed_ShouldGetTableCellModelView() {
