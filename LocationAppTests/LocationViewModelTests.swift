@@ -46,15 +46,11 @@ class LocationViewModelTests: XCTestCase {
             return
         }
         
-        let expectedName = "Name: Italy"
-        let expectedLatitude = "Latitude: 41.87194"
-        let expectedLongitude = "Longitude: 12.56738"
+        let expectedName = "Italy"
         
         let cellViewModel = viewModel.getLocationCellViewModel(for: 1)
         
         XCTAssertEqual(cellViewModel.name, expectedName)
-        XCTAssertEqual(cellViewModel.lattitude, expectedLatitude)
-        XCTAssertEqual(cellViewModel.longitude, expectedLongitude)
     }
     
     func testWhenURLOpen_ShouldReturnTrueInResult() {
@@ -63,13 +59,21 @@ class LocationViewModelTests: XCTestCase {
             return
         }
         
-        viewModel.openUrlFrom(location: Location(name: "India", latitude: 20.593684, longitude: 78.96288),
-                              result: { flag, _ in
+        viewModel.openUrlFrom(location: Location(name: "India",
+                                                 latitude: 20.593684,
+                                                 longitude: 78.96288),
+                              result: { result in
                                 
-                                XCTAssertTrue(flag)
-                                
+                                switch (result) {
+                                case .success(let flag):
+                                    XCTAssertTrue(flag)
+                                    break
+                                case .failure(_):
+                                    XCTFail()
+                                    break
+                                    
+                                }
                               })
-        
     }
     
     func testWhenLocationIsNil_ShouldReturnCoordinatesWrong() {
@@ -79,11 +83,17 @@ class LocationViewModelTests: XCTestCase {
         }
         
         viewModel.openUrlFrom(location: Location(name: "India", latitude: nil, longitude: nil),
-                              result: { flag, failure in
-                                XCTAssertFalse(flag)
-                                XCTAssertEqual(failure, .coordinates)
+                              result: { result in
+                                switch (result) {
+                                case .success(let flag):
+                                    XCTAssertFalse(flag)
+                                    break
+                                case .failure(let error):
+                                    XCTAssertEqual(error, .coordinates)
+                                    break
+                                }
+                                
                               })
-        
     }
-    
+
 }

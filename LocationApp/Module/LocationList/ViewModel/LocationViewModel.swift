@@ -17,8 +17,13 @@ class LocationViewModel {
         static let queryTwo = "longitude"
     }
     
+    enum Result<T> {
+        case success(T)
+        case failure(Alert)
+    }
+    
     // url loading fails
-    enum Failure: Error {
+    enum Alert: Error {
         case coordinates
         case wrongURL
     }
@@ -34,7 +39,7 @@ class LocationViewModel {
         return dataSource.count
     }
     
-    var handler: ((Bool, Failure) -> Void)?
+    typealias handler = (Result<Bool>) -> ()
     
     init() {
         title = "List Of Locations"
@@ -46,18 +51,18 @@ class LocationViewModel {
         return LocationCellViewModel(location: dataSource[index])
     }
     
-    func openUrlFrom(location: Location, result: @escaping (Bool, Failure?) -> Void) {
+    func openUrlFrom(location: Location, result: @escaping handler) {
                 
         guard let latitude = location.latitude,
               let longitude = location.longitude else {
-            result(false, .coordinates)
+            result(.failure(.coordinates))
             return
         }
         
         let urlString = "\(Constants.host)://\(Constants.path)?\(Constants.queryOne)=\(latitude)&\(Constants.queryTwo)=\(longitude)"
 
         guard let appURL = URL(string: urlString) else {
-            result(false, .wrongURL)
+            result(.failure(.wrongURL))
             return
         }
         
@@ -68,9 +73,9 @@ class LocationViewModel {
             else {
                 UIApplication.shared.openURL(appURL)
             }
-            result(true, nil)
+            result(.success(true))
         } else {
-            result(false, .wrongURL)
+            result(.failure(.wrongURL))
         }
     }
 }

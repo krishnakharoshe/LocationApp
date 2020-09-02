@@ -9,23 +9,14 @@ import Foundation
 
 class LocationCellViewModel {
     
-    private let locationObject: Location
+    private let locationObject: Location?
     
     var name: String? {
-        guard let name = self.locationObject.name else { return nil }
-        return "Name: \(name)"
+        guard let location = self.locationObject,
+              let name = location.name else { return nil }
+        return name
     }
-    
-    var lattitude: String? {
-        guard let lattitude = self.locationObject.latitude else { return nil }
-        return "Latitude: \(lattitude)"
-    }
-    
-    var longitude: String? {
-        guard let longitude = self.locationObject.longitude else { return nil }
-        return "Longitude: \(longitude)"
-    }
-    
+
     init(location: Location) {
         self.locationObject = location
     }

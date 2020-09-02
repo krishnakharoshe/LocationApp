@@ -8,13 +8,11 @@
 import UIKit
 
 class LocationViewController: UIViewController {
-
-    // IBOutlets
     
+    // IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
     // Private variable
-    
     private var viewModel: LocationViewModel?
     private let router = LocationListRouter()
     
@@ -29,7 +27,6 @@ class LocationViewController: UIViewController {
     }
     
     // private functions
-
     private func initialSetup() {
         self.viewModel = LocationViewModel()
         self.setupUI()
@@ -40,7 +37,6 @@ class LocationViewController: UIViewController {
             return
         }
         self.title = viewModel.title
-        self.tableView.register(UINib(nibName: "LocationTableViewCell", bundle: nil), forCellReuseIdentifier: "reusableIdentifier")
     }
     
     //IBActions
@@ -56,7 +52,7 @@ extension LocationViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reusableIdentifier", for: indexPath) as? LocationTableViewCell,
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier") as? LocationTableViewCell,
               let viewModel = self.viewModel else { return UITableViewCell() }
         
         cell.prepareCellFrom(viewModel: viewModel.getLocationCellViewModel(for: indexPath.row))
@@ -68,14 +64,16 @@ extension LocationViewController: UITableViewDataSource, UITableViewDelegate {
             return
         }
         
-        viewModel.openUrlFrom(location: viewModel.dataSource[indexPath.row], result: { [weak self] success, failure in
+        viewModel.openUrlFrom(location: viewModel.dataSource[indexPath.row],
+                              result: { [weak self] result in
             
-            guard let selfStrong = self  else { return }
+            guard let selfType = self  else { return }
             
-            switch (success, failure) {
-            case (false, .coordinates), (false, .wrongURL):
-                selfStrong.router.route(to: .alert, from: selfStrong, with: nil)
+            switch (result) {
+            case .failure(.coordinates), .failure(.wrongURL):
+                selfType.router.route(to: .alert, from: selfType, with: nil)
                 break
+                
             default: break
             }
         })
