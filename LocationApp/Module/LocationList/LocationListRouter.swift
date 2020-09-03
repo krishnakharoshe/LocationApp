@@ -12,8 +12,8 @@ enum Segue: String {
     case alert
 }
 
-
 class LocationListRouter: Router {
+    
     func route(to segue: Segue, from controller: UIViewController, with data: Any?) {
         switch segue {
         case .addLocation:
@@ -28,6 +28,7 @@ class LocationListRouter: Router {
 }
 
 private extension LocationListRouter {
+    
     func loadAddCustomLocation() -> AddLocationViewController {
         let addLocationViewController = AddLocationViewController.instantiate()
         addLocationViewController.viewModel = AddLocationViewModel()

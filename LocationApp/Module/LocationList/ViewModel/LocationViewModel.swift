@@ -9,7 +9,7 @@ import UIKit
 
 class LocationViewModel {
 
-    //constants
+    // MARK: - Constant
     enum Constants {
         static let host = "wikipedia"
         static let path = "places"
@@ -31,9 +31,10 @@ class LocationViewModel {
         case reload
     }
 
+    // MARK: - Private variable
     private let sharedInstance = AppData.shared()
 
-    // public variables
+    // MARK: - Public variable
     var title = ""
     
     var dataSource: [Location] {
@@ -51,7 +52,7 @@ class LocationViewModel {
         title = "List Of Locations"
     }
     
-    // instance methods
+    // MARK: - Instance methods
     func getLocationCellViewModel(for index: Int) -> LocationCellViewModel {
         return LocationCellViewModel(location: dataSource[index])
     }

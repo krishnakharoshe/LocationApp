@@ -9,13 +9,14 @@ import UIKit
 
 class LocationViewController: UIViewController {
     
-    // IBOutlets
+    // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
     
-    // Private variable
+    // MARK: - Private variables
     private var viewModel: LocationViewModel!
     private let router = LocationListRouter()
     
+    // MARK: - Viewcontroller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initialSetup()
@@ -26,7 +27,7 @@ class LocationViewController: UIViewController {
         self.viewModel.reloadTableViewIfRequired()
     }
     
-    // private functions
+    // MARK: - Private functions
     private func initialSetup() {
         self.viewModel = LocationViewModel()
         self.bindViewModel()
@@ -49,12 +50,13 @@ class LocationViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    //IBActions
+    // MARK: - IBAction function
     @IBAction private func addCustomLocation(_ sender: Any) {
         self.router.route(to: .addLocation, from: self, with: nil)
     }
 }
 
+    // MARK: - Table View datasource and delegate
 extension LocationViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

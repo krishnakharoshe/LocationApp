@@ -9,39 +9,43 @@ import UIKit
 
 class AddLocationViewController: UIViewController {
 
-    var viewModel: AddLocationViewModel!
+    // MARK: - Private variables
+    var viewModel: AddLocationViewModel?
     @IBOutlet weak var locationNameTextfield: UITextField!
     @IBOutlet weak var latitudeTextfield: UITextField!
     @IBOutlet weak var longitudeTextfield: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     
+    // MARK: - Initialization
     static func instantiate() -> AddLocationViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: self)) as! AddLocationViewController
         return viewController
     }
     
+    // MARK: - Viewcontroller Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initialSetup()
     }
     
-    // private functions
-    
+    // MARK: - Private functions
     private func initialSetup() {
         self.setupUI()
     }
     
     private func setupUI() {
-        
-        self.title = self.viewModel.title
-        self.locationNameTextfield.placeholder = self.viewModel.namePlaceholder
+        guard let viewModel = self.viewModel else {
+            return
+        }
+        self.title = viewModel.title
+        self.locationNameTextfield.placeholder = viewModel.namePlaceholder
         self.latitudeTextfield.keyboardType = .alphabet
-        self.latitudeTextfield.placeholder = self.viewModel.latitudePlaceholder
+        self.latitudeTextfield.placeholder = viewModel.latitudePlaceholder
         self.latitudeTextfield.keyboardType = .decimalPad
-        self.longitudeTextfield.placeholder = self.viewModel.longitudePlaceholder
+        self.longitudeTextfield.placeholder = viewModel.longitudePlaceholder
         self.longitudeTextfield.keyboardType = .decimalPad
-        self.saveButton.setTitle(self.viewModel.buttonTitle, for: .normal)
+        self.saveButton.setTitle(viewModel.buttonTitle, for: .normal)
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -51,8 +55,12 @@ class AddLocationViewController: UIViewController {
         self.longitudeTextfield.text = ""
     }
     
+    // MARK: - IBAction functions
     @IBAction private func saveLocation_TouchUpInside() {
-            
+        guard let viewModel = self.viewModel else {
+            return
+        }
+        
         guard let locationName = self.locationNameTextfield.text,
               let latitudeString = self.latitudeTextfield.text,
               let latitude = Double(latitudeString),
@@ -60,11 +68,11 @@ class AddLocationViewController: UIViewController {
               let longitude = Double(longitudeString) else {
 
             self.clearTextfields()
-            self.viewModel.showAlert(controller: self)
+            viewModel.showAlert(controller: self)
             return
         }
         
-        self.viewModel.addLocation(name: locationName,
+        viewModel.addLocation(name: locationName,
                               latitude: latitude,
                               longitude: longitude)
         

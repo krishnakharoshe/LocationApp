@@ -9,7 +9,7 @@ import UIKit
 
 class AddLocationViewModel: NSObject {
 
-    //constants
+    // MARK: - Constants
     enum Constants {
         static let namePlaceholder = "Enter location name"
         static let latitudePlaceholder = "Enter latitude"
@@ -18,6 +18,7 @@ class AddLocationViewModel: NSObject {
         static let title = "Add Location"
     }
     
+    // MARK: - Public variables
     var title: String {
         return Constants.title
     }
@@ -38,6 +39,7 @@ class AddLocationViewModel: NSObject {
         return Constants.buttonTitle
     }
     
+    // MARK: - Instance methods
     func addLocation(name: String, latitude: Double, longitude: Double) {
         AppData.shared().addLocation(location: Location(name: name, latitude: latitude, longitude: longitude))
     }
