@@ -14,22 +14,17 @@ class LocationViewController: UIViewController {
     
     // MARK: - Private variables
     private var viewModel: LocationViewModel!
-    private let router = LocationListRouter()
     
     // MARK: - Viewcontroller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initialSetup()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.viewModel.reloadTableViewIfRequired()
-    }
-    
+        
     // MARK: - Private functions
     private func initialSetup() {
         self.viewModel = LocationViewModel()
+        self.viewModel.router = LocationListRouter()
         self.bindViewModel()
         self.setupUI()
     }
@@ -47,12 +42,12 @@ class LocationViewController: UIViewController {
     
     private func setupUI(){
         self.title = self.viewModel.title
-        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     // MARK: - IBAction function
     @IBAction private func addCustomLocation(_ sender: Any) {
-        self.router.route(to: .addLocation, from: self, with: nil)
+        guard let router = self.viewModel.router else { return }
+            router.route(to: .addLocation, from: self, with: nil)
     }
 }
 
@@ -72,21 +67,7 @@ extension LocationViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        self.viewModel.openUrlFrom(location: self.viewModel.dataSource[indexPath.row],
-                                   result: { [weak self] result in
-                                    
-                                    guard let self = self else { return }
-                                    
-                                    switch (result) {
-                                    case .failure(.coordinates), .failure(.wrongURL):
-                                        self.router.route(to: .alert,
-                                                          from: self,
-                                                          with: nil)
-                                        break
-                                        
-                                    default: break
-                                    }
-                                   })
+        self.viewModel.open(location: self.viewModel.dataSource[indexPath.row],
+                            controller: self)
     }
 }

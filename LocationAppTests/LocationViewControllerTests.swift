@@ -40,17 +40,4 @@ class LocationViewControllerTests: XCTestCase {
         XCTAssertEqual(self.controller?.tableView.dataSource as? LocationViewController,
                        self.controller?.tableView.delegate as? LocationViewController)
     }
-    
-    func testNumberOfSections_IsOne() {
-        let tableView = UITableView()
-        tableView.dataSource = self.controller
-        let numberOfSections = tableView.numberOfSections
-        XCTAssertEqual(numberOfSections, 1)
-    }
-    
-    func testNumberRowsInFirstSection_IsToDoCount() {
-        let tableView = UITableView()
-        tableView.dataSource = self.controller
-        XCTAssertEqual(tableView.numberOfRows(inSection: 0), 5)
-    }
 }

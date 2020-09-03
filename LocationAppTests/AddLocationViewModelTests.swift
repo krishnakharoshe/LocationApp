@@ -8,42 +8,51 @@
 import XCTest
 @testable import LocationApp
 
+class MockAddLocationViewController: AddLocationViewController {}
+
 class AddLocationViewModelTests: XCTestCase {
 
     var viewModel: AddLocationViewModel?
+    var mockController: MockAddLocationViewController?
+    
     override func setUpWithError() throws {
         self.viewModel = AddLocationViewModel()
+        self.mockController = MockAddLocationViewController()
     }
 
     override func tearDownWithError() throws {
         self.viewModel = nil
+        self.mockController = nil
     }
     
     func testInit_AddLocationViewModel() {
         
-        guard let viewModel = self.viewModel else {
-            XCTFail()
-            return
-        }
-        
-        XCTAssertEqual(viewModel.namePlaceholder, "Enter location name")
-        XCTAssertEqual(viewModel.latitudePlaceholder, "Enter latitude")
-        XCTAssertEqual(viewModel.longitudePlaceholder, "Enter longitude")
-        XCTAssertEqual(viewModel.buttonTitle, "Save")
-        XCTAssertEqual(viewModel.title, "Add Location")
+        XCTAssertEqual(viewModel!.namePlaceholder, "Enter location name (optional)")
+        XCTAssertEqual(viewModel!.latitudePlaceholder, "Enter latitude")
+        XCTAssertEqual(viewModel!.longitudePlaceholder, "Enter longitude")
+        XCTAssertEqual(viewModel!.buttonTitle, "Open")
+        XCTAssertEqual(viewModel!.title, "Add Location")
+        XCTAssertEqual(viewModel!.errorMessage, "Enter correct details")
     }
+    
+    func testOpenUrlWithLocation_ShouldReturnTrue() {
+        self.viewModel!.saveAndOpen(name: "India",
+                                    latitude: 20.593684,
+                                    longitude: 78.96288,
+                                    controller: self.mockController!,
+                                    completionBlock: { result in
+                                        XCTAssertTrue(result)
+                                    })
+    }
+    
+    func testOpenUrlWithWrongLocation_ShouldReturnFalse() {
+        self.viewModel!.saveAndOpen(name: "India",
+                                    latitude: 20.593684,
+                                    longitude: 78.96288,
+                                    controller: self.mockController!,
+                                    completionBlock: { result in
+                                        XCTAssertTrue(result)
+                                    })
 
-    func testAddLocation_AppDataCountShouldBeFive() {
-        
-        guard let viewModel = self.viewModel else {
-            XCTFail()
-            return
-        }
-        
-        let expectedLocation = Location(name: "ABC", latitude: 20.456767, longitude: 20.345678)
-
-        viewModel.addLocation(name: "ABC", latitude: 20.456767, longitude: 20.345678)
-        let lastAddedLocation = AppData.shared().getLocationArray().last
-        XCTAssertEqual(lastAddedLocation, expectedLocation)
     }
 }

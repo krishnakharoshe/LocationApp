@@ -10,6 +10,8 @@ import XCTest
 
 private class MockAppData: AppData {}
 
+private class MockLocationViewController: LocationViewController {}
+
 class LocationViewModelTests: XCTestCase {
 
     var viewModel: LocationViewModel?
@@ -23,72 +25,34 @@ class LocationViewModelTests: XCTestCase {
     }
     
     func testInit_LocationViewModel() {
-        
-        guard let viewModel = self.viewModel else {
-            XCTFail()
-            return
-        }
-    
         let expectedTitle = "List Of Locations"
-        XCTAssertEqual(viewModel.title,expectedTitle)
-        XCTAssertEqual(viewModel.dataSource, MockAppData.shared().getLocationArray())
+        XCTAssertEqual(self.viewModel!.title,expectedTitle)
+        XCTAssertEqual(self.viewModel!.dataSource, MockAppData.sharedData.getLocationArray())
     }
     
     func testWhenIndexPassed_ShouldGetTableCellModelView() {
-        
-        guard let viewModel = self.viewModel else {
-            XCTFail()
-            return
-        }
-        
         let expectedName = "Italy"
-        
-        let cellViewModel = viewModel.getLocationCellViewModel(for: 1)
-        
+        let cellViewModel = self.viewModel!.getLocationCellViewModel(for: 1)
         XCTAssertEqual(cellViewModel.name, expectedName)
     }
     
-    func testWhenURLOpen_ShouldReturnTrueInResult() {
-        guard let viewModel = self.viewModel else {
-            XCTFail()
-            return
-        }
-        
-        viewModel.openUrlFrom(location: Location(name: "India",
-                                                 latitude: 20.593684,
-                                                 longitude: 78.96288),
-                              result: { result in
-                                
-                                switch (result) {
-                                case .success(let flag):
-                                    XCTAssertTrue(flag)
-                                    break
-                                case .failure(_):
-                                    XCTFail()
-                                    break
-                                    
-                                }
-                              })
+    func testOpenUrlWithLocation_ShouldReturnTrue() {
+        let location = Location(name: "India", latitude: 20.593684, longitude: 78.96288)
+        let viewController = MockLocationViewController()
+        self.viewModel!.open(location: location,
+                             controller: viewController,
+                             completionBlock: { result in
+                                XCTAssertTrue(result)
+                             })
     }
     
-    func testWhenLocationIsNil_ShouldReturnCoordinatesWrong() {
-        guard let viewModel = self.viewModel else {
-            XCTFail()
-            return
-        }
-        
-        viewModel.openUrlFrom(location: Location(name: "India", latitude: nil, longitude: nil),
-                              result: { result in
-                                switch (result) {
-                                case .success(let flag):
-                                    XCTAssertFalse(flag)
-                                    break
-                                case .failure(let error):
-                                    XCTAssertEqual(error, .coordinates)
-                                    break
-                                }
-                                
-                              })
+    func testOpenUrlWithWrongLocation_ShouldReturnFalse() {
+        let location = Location(name: nil, latitude: nil, longitude: nil)
+        let viewController = MockLocationViewController()
+        self.viewModel!.open(location: location,
+                             controller: viewController,
+                             completionBlock: { result in
+                                XCTAssertFalse(result)
+                             })
     }
-
 }

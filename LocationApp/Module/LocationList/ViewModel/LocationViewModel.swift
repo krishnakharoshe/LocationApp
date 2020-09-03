@@ -9,30 +9,12 @@ import UIKit
 
 class LocationViewModel {
 
-    // MARK: - Constant
-    enum Constants {
-        static let host = "wikipedia"
-        static let path = "places"
-        static let queryOne = "latitude"
-        static let queryTwo = "longitude"
-    }
-    
-    enum Result<T> {
-        case success(T)
-        case failure(Alert)
-    }
-    
-    enum Alert: Error {
-        case coordinates
-        case wrongURL
-    }
-    
     enum Action {
         case reload
     }
 
     // MARK: - Private variable
-    private let sharedInstance = AppData.shared()
+    private let sharedInstance = AppData.sharedData
 
     // MARK: - Public variable
     var title = ""
@@ -45,8 +27,9 @@ class LocationViewModel {
         return dataSource.count
     }
     
-    typealias handler = (Result<Bool>) -> ()
     var action: ((Action) ->())?
+    
+    var router: LocationListRouter?
     
     init() {
         title = "List Of Locations"
@@ -57,33 +40,24 @@ class LocationViewModel {
         return LocationCellViewModel(location: dataSource[index])
     }
     
-    func openUrlFrom(location: Location, result: @escaping handler) {
-                
-        guard let latitude = location.latitude,
-              let longitude = location.longitude else {
-            result(.failure(.coordinates))
-            return
-        }
+    // MARK: - Instance methods
+    func open(location: Location, controller: UIViewController, completionBlock: ((Bool) -> ())? = nil) {
+        self.sharedInstance.openUrlFrom(location: location,
+                                        result: { [weak self] result in
+                                            
+                                            guard let self = self else { return }
+                                            switch (result) {
+                                            case .success(let flag):
+                                                completionBlock?(flag)
+                                            case .failure(.coordinates), .failure(.wrongURL):
+                                                
+                                                guard let router = self.router else { return }
+                                                router.route(to: .alert,
+                                                             from: controller,
+                                                             with: nil)
+                                                completionBlock?(false)
+                                                break
+                                            }})
         
-        let urlString = "\(Constants.host)://\(Constants.path)?\(Constants.queryOne)=\(latitude)&\(Constants.queryTwo)=\(longitude)"
-
-        guard let appURL = URL(string: urlString) else {
-            result(.failure(.wrongURL))
-            return
-        }
-        
-        if UIApplication.shared.canOpenURL(appURL) {
-            UIApplication.shared.open(appURL)
-            result(.success(true))
-        } else {
-            result(.failure(.wrongURL))
-        }
-    }
-    
-    func reloadTableViewIfRequired() {
-        if sharedInstance.isDataUpdated {
-            self.action?(.reload)
-            sharedInstance.isDataUpdated = false
-        }
     }
 }

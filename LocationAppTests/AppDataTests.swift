@@ -14,7 +14,7 @@ class AppDataTests: XCTestCase {
 
     var appData: AppData?
     override func setUpWithError() throws {
-        self.appData = AppData.shared()
+        self.appData = MockAppData.sharedData
     }
 
     override func tearDownWithError() throws {
@@ -27,5 +27,40 @@ class AppDataTests: XCTestCase {
     
     func testLocationData_ShouldNotBeNil() {
         XCTAssertNotNil(self.appData?.getLocationArray())
+    }
+    
+    func testWhenURLOpen_ShouldReturnTrueInResult() {
+        
+        self.appData?.openUrlFrom(location: Location(name: "India",
+                                                    latitude: 20.593684,
+                                                    longitude: 78.96288),
+                                 result: { result in
+                                    
+                                    switch (result) {
+                                    case .success(let flag):
+                                        XCTAssertTrue(flag)
+                                        break
+                                    case .failure(_):
+                                        XCTFail()
+                                        break
+                                        
+                                    }
+                                 })
+    }
+    
+    func testWhenLocationIsNil_ShouldReturnCoordinatesWrong() {
+        
+        self.appData?.openUrlFrom(location: Location(name: "India", latitude: nil, longitude: nil),
+                                  result: { result in
+                                    switch (result) {
+                                    case .success(let flag):
+                                        XCTAssertFalse(flag)
+                                        break
+                                    case .failure(let error):
+                                        XCTAssertEqual(error, .coordinates)
+                                        break
+                                    }
+                                    
+                                  })
     }
 }

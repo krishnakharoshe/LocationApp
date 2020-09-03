@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aEV-O7-YNK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -70,7 +71,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="SF1-NX-0jg" id="0Pn-kh-S0d"/>
-                        <segue destination="rXT-8a-u7i" kind="show" identifier="addLocation" id="Llz-YD-yOB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -86,25 +86,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="oPt-gJ-kM7">
-                                <rect key="frame" x="20" y="88" width="374" height="236"/>
+                                <rect key="frame" x="20" y="64" width="374" height="192"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iay-r8-upw">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="42"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Ok-2H-nz3">
-                                        <rect key="frame" x="0.0" y="62" width="374" height="41.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fn6-LU-szQ">
-                                        <rect key="frame" x="0.0" y="123.5" width="374" height="42"/>
+                                        <rect key="frame" x="0.0" y="54" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iay-r8-upw">
+                                        <rect key="frame" x="0.0" y="108" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AN-ss-dOn">
-                                        <rect key="frame" x="0.0" y="185.5" width="374" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="162" width="374" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="saveLocation_TouchUpInside" destination="rXT-8a-u7i" eventType="touchUpInside" id="Y6R-Ab-ukg"/>
@@ -116,13 +116,12 @@
                         <viewLayoutGuide key="safeArea" id="hJQ-hp-r0u"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="oPt-gJ-kM7" firstAttribute="top" secondItem="hJQ-hp-r0u" secondAttribute="top" id="2up-ia-AVM"/>
-                            <constraint firstItem="hJQ-hp-r0u" firstAttribute="trailing" secondItem="oPt-gJ-kM7" secondAttribute="trailing" constant="20" id="7Zo-J9-IQY"/>
-                            <constraint firstItem="oPt-gJ-kM7" firstAttribute="leading" secondItem="hJQ-hp-r0u" secondAttribute="leading" constant="20" id="wY5-Ye-cXR"/>
-                            <constraint firstItem="hJQ-hp-r0u" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="oPt-gJ-kM7" secondAttribute="bottom" constant="538" id="xwQ-LX-sgv"/>
+                            <constraint firstItem="oPt-gJ-kM7" firstAttribute="leading" secondItem="hJQ-hp-r0u" secondAttribute="leading" constant="20" id="VRU-4Z-ERc"/>
+                            <constraint firstItem="oPt-gJ-kM7" firstAttribute="top" secondItem="hJQ-hp-r0u" secondAttribute="top" constant="20" id="W6D-ez-2Qh"/>
+                            <constraint firstItem="hJQ-hp-r0u" firstAttribute="trailing" secondItem="oPt-gJ-kM7" secondAttribute="trailing" constant="20" id="pOJ-wg-3rr"/>
+                            <constraint firstItem="hJQ-hp-r0u" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="oPt-gJ-kM7" secondAttribute="bottom" constant="20" id="uSU-lh-lsN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="OOB-3Z-WPn"/>
                     <connections>
                         <outlet property="latitudeTextfield" destination="9Ok-2H-nz3" id="eoC-X2-94H"/>
                         <outlet property="locationNameTextfield" destination="iay-r8-upw" id="ONw-sl-Hbc"/>
@@ -132,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YLc-oZ-MQN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1597" y="53"/>
+            <point key="canvasLocation" x="2505.7971014492755" y="52.901785714285715"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rAN-6a-yMF">

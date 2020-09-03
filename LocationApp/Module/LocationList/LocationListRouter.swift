@@ -17,9 +17,10 @@ class LocationListRouter: Router {
     func route(to segue: Segue, from controller: UIViewController, with data: Any?) {
         switch segue {
         case .addLocation:
-            controller.navigationController?.pushViewController(self.loadAddCustomLocation(), animated: true)
+            controller.present(UINavigationController.init(rootViewController: self.loadAddCustomLocation()),
+                               animated: true,
+                               completion: nil)
             break
-        
         case .alert:
             controller.present(self.getAlertViewControler(), animated: true, completion: nil)
             break

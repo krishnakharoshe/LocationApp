@@ -11,15 +11,17 @@ class AddLocationViewController: UIViewController {
 
     // MARK: - Private variables
     var viewModel: AddLocationViewModel?
-    @IBOutlet weak var locationNameTextfield: UITextField!
-    @IBOutlet weak var latitudeTextfield: UITextField!
-    @IBOutlet weak var longitudeTextfield: UITextField!
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet private(set) weak var locationNameTextfield: UITextField!
+    @IBOutlet private(set) weak var latitudeTextfield: UITextField!
+    @IBOutlet private(set) weak var longitudeTextfield: UITextField!
+    @IBOutlet private(set) weak var saveButton: UIButton!
     
     // MARK: - Initialization
     static func instantiate() -> AddLocationViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: self)) as! AddLocationViewController
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: self)) as? AddLocationViewController else {
+            fatalError("Failed to load EditUserViewController from storyboard.")
+        }
         return viewController
     }
     
@@ -46,7 +48,13 @@ class AddLocationViewController: UIViewController {
         self.longitudeTextfield.placeholder = viewModel.longitudePlaceholder
         self.longitudeTextfield.keyboardType = .decimalPad
         self.saveButton.setTitle(viewModel.buttonTitle, for: .normal)
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Cancel",
+            style: .done,
+            target: self,
+            action: #selector(self.cancel_TouchUpInside)
+        )
     }
     
     private func clearTextfields() {
@@ -55,27 +63,31 @@ class AddLocationViewController: UIViewController {
         self.longitudeTextfield.text = ""
     }
     
+    @objc private func cancel_TouchUpInside() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: - IBAction functions
     @IBAction private func saveLocation_TouchUpInside() {
         guard let viewModel = self.viewModel else {
             return
         }
         
-        guard let locationName = self.locationNameTextfield.text,
-              let latitudeString = self.latitudeTextfield.text,
+        guard let latitudeString = self.latitudeTextfield.text,
               let latitude = Double(latitudeString),
               let longitudeString = self.longitudeTextfield.text,
               let longitude = Double(longitudeString) else {
-
             self.clearTextfields()
-            viewModel.showAlert(controller: self)
+            viewModel.showAlert(controller: self, message: "Enter ")
             return
         }
         
-        viewModel.addLocation(name: locationName,
+        viewModel.saveAndOpen(name: self.locationNameTextfield.text ?? "Unknown",
                               latitude: latitude,
-                              longitude: longitude)
+                              longitude: longitude,
+                              controller: self)
         
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
+
 }
