@@ -9,9 +9,12 @@ import UIKit
 
 class AppData {
 
+    // private variables
     private static var sharedData = AppData()
-    
     private var locationsArray = [Location]()
+    
+    //public variables
+    public var isDataUpdated: Bool = false
     
     private init() {
         
@@ -33,5 +36,6 @@ class AppData {
     
     func addLocation(location: Location) {
         self.locationsArray.append(location)
+        self.isDataUpdated = true
     }
 }

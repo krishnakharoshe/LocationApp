@@ -22,17 +22,22 @@ class LocationViewModel {
         case failure(Alert)
     }
     
-    // url loading fails
     enum Alert: Error {
         case coordinates
         case wrongURL
     }
+    
+    enum Action {
+        case reload
+    }
+
+    private let sharedInstance = AppData.shared()
 
     // public variables
     var title = ""
     
     var dataSource: [Location] {
-        return AppData.shared().getLocationArray()
+        return sharedInstance.getLocationArray()
     }
     
     var rowCount: Int{
@@ -40,13 +45,13 @@ class LocationViewModel {
     }
     
     typealias handler = (Result<Bool>) -> ()
+    var action: ((Action) ->())?
     
     init() {
         title = "List Of Locations"
     }
     
     // instance methods
-    
     func getLocationCellViewModel(for index: Int) -> LocationCellViewModel {
         return LocationCellViewModel(location: dataSource[index])
     }
@@ -67,15 +72,17 @@ class LocationViewModel {
         }
         
         if UIApplication.shared.canOpenURL(appURL) {
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(appURL)
-            }
-            else {
-                UIApplication.shared.openURL(appURL)
-            }
+            UIApplication.shared.open(appURL)
             result(.success(true))
         } else {
             result(.failure(.wrongURL))
+        }
+    }
+    
+    func reloadTableViewIfRequired() {
+        if sharedInstance.isDataUpdated {
+            self.action?(.reload)
+            sharedInstance.isDataUpdated = false
         }
     }
 }
