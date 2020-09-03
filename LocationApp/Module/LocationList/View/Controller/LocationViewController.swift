@@ -78,7 +78,9 @@ extension LocationViewController: UITableViewDataSource, UITableViewDelegate {
                                     
                                     switch (result) {
                                     case .failure(.coordinates), .failure(.wrongURL):
-                                        selfType.router.route(to: .alert, from: selfType, with: nil)
+                                        self.router.route(to: .alert,
+                                                          from: self,
+                                                          with: nil)
                                         break
                                         
                                     default: break
