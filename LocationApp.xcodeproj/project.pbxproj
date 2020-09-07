@@ -24,6 +24,7 @@
 		5168D11B24FA786600335917 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D11A24FA786600335917 /* LocationViewController.swift */; };
 		5168D12324FA7D4B00335917 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D12124FA7D4B00335917 /* LocationTableViewCell.swift */; };
 		5168D12824FA87F200335917 /* LocationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168D12724FA87F200335917 /* LocationCellViewModel.swift */; };
+		519926E3250644A20051DB72 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 519926E2250644A20051DB72 /* README.md */; };
 		51F6AB1F24FF5A34002EC846 /* LocationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6AB1E24FF5A34002EC846 /* LocationViewModelTests.swift */; };
 		51F6AB2124FF958F002EC846 /* AddLocationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6AB2024FF958F002EC846 /* AddLocationViewModelTests.swift */; };
 		51F6AB2324FF9E5B002EC846 /* AddLocationViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6AB2224FF9E5B002EC846 /* AddLocationViewControllerTests.swift */; };
@@ -63,6 +64,7 @@
 		5168D11A24FA786600335917 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		5168D12124FA7D4B00335917 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		5168D12724FA87F200335917 /* LocationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellViewModel.swift; sourceTree = "<group>"; };
+		519926E2250644A20051DB72 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		51F6AB1E24FF5A34002EC846 /* LocationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModelTests.swift; sourceTree = "<group>"; };
 		51F6AB2024FF958F002EC846 /* AddLocationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewModelTests.swift; sourceTree = "<group>"; };
 		51F6AB2224FF9E5B002EC846 /* AddLocationViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewControllerTests.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		5168D0D824FA6D3B00335917 = {
 			isa = PBXGroup;
 			children = (
+				519926E2250644A20051DB72 /* README.md */,
 				5168D0E324FA6D3B00335917 /* LocationApp */,
 				5168D0FA24FA6D4500335917 /* LocationAppTests */,
 				5168D0E224FA6D3B00335917 /* Products */,
@@ -314,6 +317,7 @@
 			files = (
 				5168D0F124FA6D4500335917 /* LaunchScreen.storyboard in Resources */,
 				5168D0EE24FA6D4500335917 /* Assets.xcassets in Resources */,
+				519926E3250644A20051DB72 /* README.md in Resources */,
 				5168D0EC24FA6D3C00335917 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

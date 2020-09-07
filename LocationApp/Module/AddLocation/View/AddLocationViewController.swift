@@ -20,7 +20,7 @@ class AddLocationViewController: UIViewController {
     static func instantiate() -> AddLocationViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: self)) as? AddLocationViewController else {
-            fatalError("Failed to load EditUserViewController from storyboard.")
+            fatalError("Failed to load AddLocationViewController from storyboard.")
         }
         return viewController
     }
